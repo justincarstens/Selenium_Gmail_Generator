@@ -61,7 +61,7 @@ public class GmailGenerator {
         driver.findElement(By.id("firstName")).sendKeys(firstName);
         driver.findElement(By.id("lastName")).sendKeys(lastName);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
         // DD/MM/YYYY & Gender
         driver.findElement(By.id("day")).sendKeys(Integer.toString(day));
@@ -81,7 +81,10 @@ public class GmailGenerator {
         Thread.sleep(3000);
         driver.findElement(By.name("Passwd")).sendKeys("//Generate_Password_Here");
         driver.findElement(By.name("PasswdAgain")).sendKeys("//Generate_Password_Here");
-        Thread.sleep(5000);
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
+        Thread.sleep(2000);
+
 
     }
 }
