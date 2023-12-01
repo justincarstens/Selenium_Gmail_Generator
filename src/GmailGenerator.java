@@ -42,12 +42,10 @@ public class GmailGenerator {
             default -> gender = "Prefer not to say";
         }
 
-        // Setting First & Last Names from Name Generator
+        // Setting First & Last Names from NameGenerator
         NameGenerator nameGenerator = new NameGenerator();
 
         String name = nameGenerator.Generate();
-
-        System.out.println(name);
 
         String firstName = name.substring(0, name.indexOf(' '));
         String lastName = name.substring(name.indexOf(' '));
@@ -63,8 +61,8 @@ public class GmailGenerator {
         driver.findElement(By.id("firstName")).sendKeys(firstName);
         driver.findElement(By.id("lastName")).sendKeys(lastName);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
-
         Thread.sleep(5000);
+
         // DD/MM/YYYY & Gender
         driver.findElement(By.id("day")).sendKeys(Integer.toString(day));
         driver.findElement(By.id("year")).sendKeys(Integer.toString(year));
