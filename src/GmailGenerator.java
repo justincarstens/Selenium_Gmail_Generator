@@ -3,8 +3,6 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import java.time.Year;
-import java.util.Random;
 
 public class GmailGenerator {
     public static void main(String[] args) throws Exception {
@@ -16,37 +14,16 @@ public class GmailGenerator {
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         WebDriver driver = new ChromeDriver(options);
 
-        // DD/MM/YYYY & Gender Generator
-        Random random = new Random();
-        // YEAR
-        Year currentYear = Year.now();
-        int sysYear = currentYear.getValue();
-        int year = random.nextInt(1950, sysYear - 18);
-        // MONTH
-        String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-        String month = months[random.nextInt(0, months.length)];
-        // DAY
-        int day = 0;
-        switch (month) {
-            case "February" -> day = random.nextInt(0, 28) + 1;
-            case "January", "March", "May", "July", "August", "October", "December" -> day = random.nextInt(0, 31) + 1;
-            case "April", "June", "September", "November" -> day = random.nextInt(0, 30) + 1;
-            default -> day = 1;
-        }
-        // GENDER
-        int randomGenderGenerator = random.nextInt(0,2);
-        String gender;
-        switch (randomGenderGenerator) {
-            case 0 -> gender = "Male";
-            case 1 -> gender = "Female";
-            default -> gender = "Prefer not to say";
-        }
+        // Generate DD/MM/YYYY & Gender from PersonalInfo class
+        PersonalInfo personalInfo = new PersonalInfo();
+        int day = personalInfo.getDay();
+        String month = personalInfo.getMonth();
+        int year = personalInfo.getYear();
+        String gender = personalInfo.getGender();
 
         // Setting First & Last Names from NameGenerator
         NameGenerator nameGenerator = new NameGenerator();
-
         String name = nameGenerator.Generate();
-
         String firstName = name.substring(0, name.indexOf(' '));
         String lastName = name.substring(name.indexOf(' '));
 
@@ -70,7 +47,7 @@ public class GmailGenerator {
         driver.findElement(By.id("gender")).sendKeys(gender);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
 
-        // Select email address without @gmail.com
+        // Select custom email address & input 'username' without @gmail.com
         Thread.sleep(3000);
         driver.findElement(By.xpath("//div[@class='zJKIV y5MMGc sD2Hod' and @role='radio' and @aria-labelledby='selectioni3']")).click();
         driver.findElement(By.name("Username")).sendKeys("//Generate Email Here");
@@ -84,7 +61,6 @@ public class GmailGenerator {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
         Thread.sleep(2000);
-
 
     }
 }
