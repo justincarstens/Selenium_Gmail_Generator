@@ -61,7 +61,7 @@ public class GmailGenerator {
         driver.findElement(By.id("firstName")).sendKeys(firstName);
         driver.findElement(By.id("lastName")).sendKeys(lastName);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
         // DD/MM/YYYY & Gender
         driver.findElement(By.id("day")).sendKeys(Integer.toString(day));
@@ -71,17 +71,16 @@ public class GmailGenerator {
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
 
         // Select email address without @gmail.com
-        Thread.sleep(10000);
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//div[@class='zJKIV y5MMGc sD2Hod' and @role='radio' and @aria-labelledby='selectioni3']")).click();
         driver.findElement(By.name("Username")).sendKeys("//Generate Email Here");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
 
         // Password & Confirm Password
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         driver.findElement(By.name("Passwd")).sendKeys("//Generate_Password_Here");
         driver.findElement(By.name("PasswdAgain")).sendKeys("//Generate_Password_Here");
-
         Thread.sleep(5000);
 
     }
