@@ -4,13 +4,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.logging.Logger;
+
 public class GmailGenerator {
+
+    private static final Logger LOGGER = Logger.getLogger(GmailGenerator.class.getName());
     public static void main(String[] args) throws Exception {
 
         // Initialise
-        System.setProperty("webdriver.chrome.driver", "J:\\Users\\Justin\\Documents\\Selenium\\chromedriver-win64\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", getChromeDriver());
         ChromeOptions options = new ChromeOptions();
-        options.setBinary("J:\\Users\\Justin\\Documents\\Selenium\\chrome-win64\\chrome.exe");
+        options.setBinary(getChromeExe());
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         WebDriver driver = new ChromeDriver(options);
 
@@ -76,5 +83,29 @@ public class GmailGenerator {
 
         driver.close();
 
+    }
+
+    public static String getChromeDriver() {
+        //Reading API Key from config.properties file to ensure API Key stays private
+        Properties properties = new Properties();
+        try (FileInputStream input = new FileInputStream("src/config.properties")) {
+            properties.load(input);
+            return properties.getProperty("chromedriver");
+        } catch (IOException e) {
+            LOGGER.severe("Error reading configuration: " + e.getMessage());
+        }
+        return null;
+    }
+
+    public static String getChromeExe() {
+        //Reading API Key from config.properties file to ensure API Key stays private
+        Properties properties = new Properties();
+        try (FileInputStream input = new FileInputStream("src/config.properties")) {
+            properties.load(input);
+            return properties.getProperty("chrome.exe");
+        } catch (IOException e) {
+            LOGGER.severe("Error reading configuration: " + e.getMessage());
+        }
+        return null;
     }
 }
