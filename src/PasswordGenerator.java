@@ -38,7 +38,7 @@ public class PasswordGenerator {
     public static String getApiKey() {
         //Reading API Key from config.properties file to ensure API Key stays private
         Properties properties = new Properties();
-        try (FileInputStream input = new FileInputStream("J:\\Users\\Justin\\Documents\\IntelliJ Projects\\Selenium - Gmail Generator\\src\\config.properties")) {
+        try (FileInputStream input = new FileInputStream("src/config.properties")) {
             properties.load(input);
             return properties.getProperty("api.key");
         } catch (IOException e) {
