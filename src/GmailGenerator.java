@@ -25,7 +25,12 @@ public class GmailGenerator {
         NameGenerator nameGenerator = new NameGenerator();
         String name = nameGenerator.Generate();
         String firstName = name.substring(0, name.indexOf(' '));
-        String lastName = name.substring(name.indexOf(' '));
+        String lastName = name.substring(name.indexOf(' ') + 1);
+
+        // Generate 'username' (email address)
+        String username = firstName + "." + lastName + "." + Integer.toString(year).substring(2);
+
+        System.out.println(username);
 
         // Start Gmail Registering Process
         driver.get("https://www.gmail.com");
@@ -50,14 +55,20 @@ public class GmailGenerator {
         // Select custom email address & input 'username' without @gmail.com
         Thread.sleep(3000);
         driver.findElement(By.xpath("//div[@class='zJKIV y5MMGc sD2Hod' and @role='radio' and @aria-labelledby='selectioni3']")).click();
-        driver.findElement(By.name("Username")).sendKeys("//Generate Email Here");
+
+        // - to generate
+        driver.findElement(By.name("Username")).sendKeys(username);
+
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
 
         // Password & Confirm Password
         Thread.sleep(3000);
+
+        // - to generate
         driver.findElement(By.name("Passwd")).sendKeys("//Generate_Password_Here");
         driver.findElement(By.name("PasswdAgain")).sendKeys("//Generate_Password_Here");
+
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
         Thread.sleep(2000);
