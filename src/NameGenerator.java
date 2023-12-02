@@ -27,7 +27,7 @@ public class NameGenerator {
 
         name = nameResponse.getName();
 
-        // API name response comes randomly with titles and qualifications, the below removes them, leaving only fName & lName
+        // API name response comes randomly with titles and qualifications, the below removes them, leaving only first name & last name
         String[] titles = {"Dr.", "Mr.", "Mrs.", "Ms.", "Dr", "Mr", "Mrs", "Ms", "Miss"};
         String[] qualifications = {"PHD", "MD", "DDS", "I", "II", "III"};
 

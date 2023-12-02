@@ -40,10 +40,9 @@ public class PasswordGenerator {
         Properties properties = new Properties();
         try (FileInputStream input = new FileInputStream("src/config.properties")) {
             properties.load(input);
-            return properties.getProperty("api.key");
         } catch (IOException e) {
             LOGGER.severe("Error reading configuration: " + e.getMessage());
         }
-        return null;
+        return properties.getProperty("api.key");
     }
 }
