@@ -6,9 +6,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class PasswordGenerator {
 
+    private static final Logger LOGGER = Logger.getLogger(PasswordGenerator.class.getName());
     public static String random_password;
 
     public String Generate() throws Exception {
@@ -40,7 +42,7 @@ public class PasswordGenerator {
             properties.load(input);
             return properties.getProperty("api.key");
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.severe("Error reading configuration: " + e.getMessage());
         }
         return null;
     }
