@@ -30,6 +30,10 @@ public class GmailGenerator {
         // Generate 'username' (email address)
         String username = firstName + "." + lastName + "." + Integer.toString(year).substring(2);
 
+        // Generate password from PasswordGenerator class
+        PasswordGenerator passwordGenerator = new PasswordGenerator();
+        String password = passwordGenerator.Generate();
+
         // Start Gmail Registering Process
         driver.get("https://www.gmail.com");
 
@@ -64,8 +68,8 @@ public class GmailGenerator {
         Thread.sleep(3000);
 
         // - to generate
-        driver.findElement(By.name("Passwd")).sendKeys("//Generate_Password_Here");
-        driver.findElement(By.name("PasswdAgain")).sendKeys("//Generate_Password_Here");
+        driver.findElement(By.name("Passwd")).sendKeys(password);
+        driver.findElement(By.name("PasswdAgain")).sendKeys(password);
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")).click();
         Thread.sleep(2000);
