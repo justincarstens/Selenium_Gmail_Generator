@@ -30,8 +30,6 @@ public class GmailGenerator {
         // Generate 'username' (email address)
         String username = firstName + "." + lastName + "." + Integer.toString(year).substring(2);
 
-        System.out.println(username);
-
         // Start Gmail Registering Process
         driver.get("https://www.gmail.com");
 
