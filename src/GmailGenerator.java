@@ -28,7 +28,7 @@ public class GmailGenerator {
         String lastName = name.substring(name.indexOf(' ') + 1);
 
         // Generate 'username' (email address)
-        String username = firstName + "." + lastName + "." + Integer.toString(year).substring(2);
+        String username = firstName.toLowerCase() + "." + lastName.toLowerCase() + "." + Integer.toString(year).substring(2);
 
         // Generate password from PasswordGenerator class
         PasswordGenerator passwordGenerator = new PasswordGenerator();
