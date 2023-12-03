@@ -4,7 +4,7 @@
 
 This Java program automates the process of creating Gmail accounts using Selenium WebDriver. It generates random personal information, including names, birthdates, and genders, and utilizes this data to register new Gmail accounts via automation
 
->_**Note: This project is designed for portfolio demonstration purposes only and does not complete Gmail registration process due to mobile authentication requirements.**_
+>_**Note: This project is designed for portfolio demonstration purposes only and does not complete the Gmail registration process due to mobile authentication requirements.**_
 
 ## What This Project Entails
 
