@@ -30,3 +30,9 @@ With this being my first Selenium project, this project showcases a range of ski
   - **chromedriver**: Path to your local chromedriver.exe file.
   - **chrome.exe**: Path to the compatible Chrome.exe corresponding to your ChromeDriver.
   - **api.key**: Your private API Key for https://api-ninjas.com/
+
+## Improvements
+
+  - Use the gender from the Name generator API instead of randomly generating.
+  - Find a better way to read from the config.properties file instead of a method reading the file for each property.
+  - _Actually complete the registration process._
