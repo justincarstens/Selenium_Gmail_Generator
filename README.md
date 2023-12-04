@@ -35,4 +35,5 @@ With this being my first Selenium project, this project showcases a range of ski
 
   - Use the gender from the Name generator API instead of randomly generating.
   - Find a better way to read from the config.properties file instead of a method reading the file for each property.
+  - Implement implicit/explicit waits instead of Thread.sleep() to ensure the element is on the screen before proceeding with the automation.
   - _Actually complete the registration process._
